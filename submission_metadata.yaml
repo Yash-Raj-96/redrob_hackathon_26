@@ -1,0 +1,91 @@
+# Redrob Hackathon — Submission Metadata Template
+#
+# Copy this file to your repo root as `submission_metadata.yaml` and fill it in.
+# The fields here should match what you submit via the portal at upload time.
+# Stage 3 review uses this file to verify your portal metadata.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "yashraj"  # Used in leaderboard and announcements
+
+primary_contact:
+  name: "YASHVANTH P S"
+  email: "yashraj8996@gmail.com"   # Used for all organizer communication
+  phone: "+91-8792272861"        # Used for top-50 / top-10 outreach
+  role: "Software Engineer" 
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/Yash-Raj-96/redrob_hackathon_26.git"
+
+
+sandbox_link: "https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon"
+# Required. A working hosted environment where the ranker can be run on a small
+# candidate sample. See Section 10.5 of submission_spec.md for acceptable
+# platforms (HuggingFace Spaces, Streamlit Cloud, Replit, Colab, Docker, Binder).
+
+reproduce_command: "python rank.py --candidates data/candidates.jsonl --out output/final_candidates.csv"
+# The single command that produces submission.csv from candidates.jsonl.
+# Should run end-to-end within 5 minutes on CPU with 16GB RAM and no network.
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+
+compute:
+  platform: "Windows 11 Pro - Local Machine"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11.4"
+  os: "Windows 11 Pro"
+  uses_gpu_for_inference: false                 
+  has_network_during_ranking: false             
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+# Transparency only — declared use is NOT penalized. Be honest. Stage 5 interview
+# may verify these declarations against your code; declarations that contradict
+# your code or your interview are flagged.
+ai_tools_used:
+  - "Claude"        # e.g. for architecture discussion, code review
+  - "GitHub Copilot"  # e.g. for autocomplete
+  - "ChatGPT"
+  # Other options: "ChatGPT", "Cursor", "Gemini", "Codeium", "Other", "None"
+
+ai_usage_summary: |
+  "Used Claude for code review, architectural discussions, and debugging Python issues.
+  Used ChatGPT for understanding hackathon requirements, brainstorming ranking strategies,
+  and refining the reasoning generation logic.
+  Used GitHub Copilot for autocomplete and code suggestions during development.
+  No candidate data was fed to any LLM. All AI usage was for development assistance only."
+
+# ============================================================================
+# Approach summary (optional but recommended)
+# ============================================================================
+methodology_summary: |
+  "A lightweight, CPU-optimized ranking engine that evaluates 100,000 candidates for the Senior AI Engineer role through a 7-step pipeline."
+  
+  "Step 1: Load and flatten JSONL candidate profiles, normalize skills, aggregate career text, and extract platform signals.
+  Step 2: Apply hard filtering to remove candidates with <2 years experience, no technical AI/ML signals, or clearly unrelated professions.
+  Step 3: Compute three component scores: Skill Match (Tier A/B/C with Retrieval, Ranking, LLM bonuses), Career Match (title relevance, company quality, experience, seniority), and Behavioral Score (availability, responsiveness, activity, verification).
+  Step 4: Combine scores using weighted formula: Skill (55%) + Career (30%) + Behavior (15%) = Initial Score.
+  Step 5: Apply deterministic reranking adjustments for Open to Work, Notice Period, Response Rate, Activity, GitHub, and Verification.
+  Step 6: Select Top 100 candidates.
+  Step 7: Export CSV with candidate_id, rank, and score."
+  
+  "Runtime: ~10 seconds on CPU. No external API calls. Fully reproducible."
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true        # I have read submission_spec.md in full
+  code_is_original_work: true       # My code is my team's original work (using AI as a tool is fine)
+  no_collusion: true                # I have not coordinated my submission with other teams
+  honeypot_check_done: false        # OPTIONAL — set true if you explicitly checked for honeypots in your ranking
+  reproduction_tested: true         # I have tested that my reproduce_command runs end-to-end
+
