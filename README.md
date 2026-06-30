@@ -6,15 +6,6 @@ This system processes a pool of **100,000 candidates** and generates a curated s
 
 ---
 
-## 🌐 Live Demo
-
-| Platform | Link |
-|----------|------|
-| **Hugging Face Spaces (Docker)** | [https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon](https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon) |
-| **GitHub Repository** | [https://github.com/Yash-Raj-96/redrob_hackathon_26](https://github.com/Yash-Raj-96/redrob_hackathon_26) |
-
----
-
 ## 🚀 Key Features
 
 | Feature | Description |
@@ -104,11 +95,6 @@ Run the ranking pipeline on the full **100,000-candidate** dataset:
 
 ```bash
 python rank.py --candidates data/candidates.jsonl --out outputs/final_candidates.csv
-```
-
-**With verbose output:**
-```bash
-python rank.py --candidates data/candidates.jsonl --out outputs/final_candidates.csv --verbose
 ```
 
 **Expected Output:**
