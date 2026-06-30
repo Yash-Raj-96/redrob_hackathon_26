@@ -50,7 +50,7 @@ ai_candidate_ranker/
 ├── rank.py                          # Main CLI execution entry point
 ├── validate_submission.py           # CSV format validator
 ├── README.md                        # Project documentation
-├── requirements.txt                 # Python dependencies
+├── requirements.txt                 # dependencies
 ├── submission_metadata.yaml         # Portal metadata for Stage 3 validation
 ├── final_candidates.csv             # Generated final top-100 ranked output CSV
 │
@@ -76,8 +76,8 @@ ai_candidate_ranker/
 │   └── final_candidates.csv
 │
 └── sandbox/                         # Interactive demo space
-    ├── app.py                       # Streamlit web application
-    └── requirements.txt             # Sandbox-specific requirements
+    └── app.py                       # Streamlit web application
+
 ```
 
 ---
@@ -118,8 +118,8 @@ python rank.py --candidates data/candidates.jsonl --out outputs/final_candidates
 Loading candidates...
 Loaded 100,000 candidates
 13,780 candidates passed hard filtering
-Submission written to outputs/final_candidates.csv
-Top candidate: CAND_XXXXXXX (score=0.XXXXXX)
+Submission written to output/final_candidates.csv
+Top candidate: CAND_0018499 (score=0.979600)
 ```
 
 ### Step 3: Validating the Output
@@ -154,7 +154,7 @@ For testing smaller candidate samples interactively, launch the local Streamlit 
 
 ```bash
 # Install sandbox dependencies
-pip install -r sandbox/requirements.txt
+pip install -r requirements.txt
 
 # Launch the dashboard
 streamlit run sandbox/app.py
@@ -176,7 +176,7 @@ The system generates a CSV file with the following columns:
 
 ```csv
 candidate_id,rank,score,reasoning
-CAND_0018499,1,0.9900,"Senior Machine Learning Engineer with 7.2 years experience; skills: Milvus, Pinecone, Weaviate; production ML experience; based in Pune; high recruiter response rate (88%)."
+CAND_0018499,1,0.979600,"Senior Machine Learning Engineer with 7.2 yrs experience at Zomato; relevant skills: Pinecone, Weaviate, Milvus; Noida, Uttar Pradesh. Platform signals are strong: immediate availability; GitHub score 95."
 ```
 
 | Column | Description |
@@ -215,15 +215,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN pip install -r sandbox/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 7860
 
-CMD ["streamlit", "run", "sandbox/app.py", "--server.port=7860", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "sandbox/app.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.headless=true", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
 ```
 
 ### Hugging Face Space Configuration
