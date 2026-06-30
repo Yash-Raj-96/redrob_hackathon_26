@@ -96,8 +96,6 @@ cd redrob_hackathon_26
 # Install dependencies
 pip install -r requirements.txt
 
-# For Streamlit dashboard
-pip install -r sandbox/requirements.txt
 ```
 
 ### Step 2: Running the Ranker on the Full Dataset
@@ -127,7 +125,7 @@ Top candidate: CAND_0018499 (score=0.979600)
 Run the validator script on the generated CSV file to confirm formatting and scoring validity:
 
 ```bash
-python validate_submission.py outputs/final_candidates.csv
+python validate_submission.py final_candidates.csv        
 ```
 
 If successful, the console will print:
