@@ -1,5 +1,3 @@
-Here's a complete `README.md` file for your GitHub repository based on your project structure and Hugging Face Spaces deployment:
-
 ```markdown
 # 🏆 Redrob Intelligent Candidate Ranker
 
