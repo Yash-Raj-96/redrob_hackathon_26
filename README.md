@@ -1,6 +1,3 @@
-Here's a complete `README.md` file for your GitHub repository based on your project structure and Hugging Face Spaces deployment:
-
-```markdown
 # 🏆 Redrob Intelligent Candidate Ranker
 
 An optimized, rule-based candidate ranking system developed for the **Redrob Hackathon - Intelligent Candidate Discovery & Ranking Challenge**.
