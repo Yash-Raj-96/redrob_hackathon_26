@@ -223,48 +223,6 @@ EXPOSE 7860
 CMD ["streamlit", "run", "sandbox/app.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.headless=true", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
 ```
 
-### Hugging Face Space Configuration
-
-Create `README.md` for your Space:
-
-```markdown
----
-title: Redrob Hackathon Ranker
-emoji: 🏆
-colorFrom: red
-colorTo: blue
-sdk: docker
-pinned: false
----
-
-# Redrob Intelligent Candidate Ranker
-
-Interactive dashboard for candidate ranking and evaluation.
-
-## Features
-- Upload candidate profiles
-- Advanced filtering
-- Visualizations
-- Profile inspection
-- CSV export
-```
-
-### Deploy to Hugging Face Spaces
-
-```bash
-# Clone your Space
-git clone https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon
-cd redrob_hackathon
-
-# Copy your project files
-cp -r ../ai_candidate_ranker/* .
-
-# Add files
-git add .
-git commit -m "Deploy Redrob Candidate Ranker"
-git push
-```
-
 ---
 
 ## 🚀 Quick Run Commands
@@ -272,8 +230,7 @@ git push
 | Command | Description |
 |---------|-------------|
 | `python rank.py --candidates data/candidates.jsonl --out outputs/final_candidates.csv` | Run ranking pipeline |
-| `python rank.py --candidates data/candidates.jsonl --out outputs/final_candidates.csv --verbose` | Run with verbose output |
-| `python validate_submission.py outputs/final_candidates.csv` | Validate output |
+| `python validate_submission.py final_candidates.csv` | Validate output |
 | `streamlit run sandbox/app.py` | Launch dashboard |
 
 ---
