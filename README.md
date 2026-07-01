@@ -243,6 +243,6 @@ CMD ["streamlit", "run", "sandbox/app.py", "--server.port=7860", "--server.addre
 | **Hugging Face Space** | [https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon](https://huggingface.co/spaces/HiddenBeauty/redrob_hackathon) |
 | **Submission CSV** | [`outputs/final_candidates.csv`](https://github.com/Yash-Raj-96/redrob_hackathon_26/blob/main/output/final_candidates.csv
 ) |
-| **Metadata** | `submission_metadata.yaml` |
+| **Metadata** | [`submission_metadata.yaml`](https://github.com/Yash-Raj-96/redrob_hackathon_26/blob/main/submission_metadata.yaml) |
 
 ---
