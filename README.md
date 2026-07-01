@@ -43,7 +43,6 @@ ai_candidate_ranker/
 ├── README.md                        # Project documentation
 ├── requirements.txt                 # dependencies
 ├── submission_metadata.yaml         # Portal metadata for Stage 3 validation
-├── final_candidates.csv             # Generated final top-100 ranked output CSV
 │
 ├── data/                            # Challenge resources and datasets
 │   ├── candidates.jsonl             # 100K candidate profiles
